@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+</head>
+<body>
+<h1>Exercise 5</h1>
+<table class="table" >
+    <thead>
+    <tr>
+        <th>ID</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<label for="filter-price">Price:</label>
+<input type="number" id="filter-price">
+<button id="filter-price-button">Price less than</button>
+<button id="clear-filter-button">Clear Filter</button>
+<br>
+<br>
+<a href="javascript:history.back()"><button>Back</button></a>
+<h1>Reflections</h1>
+<div class="reflect">
+    <ul>
+        JavaScript template strings efficiently generate HTML content for each car object, <br>
+        and this dynamic list is seamlessly inserted into the table's innerHTML. <br>
+        The map method is instrumental in creating this array. Filter functionality refines the car list based on prices, <br>
+        and by reusing the makeList() method, the table is dynamically updated with the filtered results, <br>
+        demonstrating effective use of map and filter for data presentation and interaction.
+    </ul>
+
+</div>
+
+<script>
+
+    const cars = [
+        { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+        { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+        { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+        { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+        { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
+    ];
+    const carTable = makeList(cars);
+    document.querySelector("#tbody").innerHTML = carTable;
+    function makeList(array) {
+        const lis = array.map(car => `<tr><td>${car.id}</td><td>${car.year}</td><td>${car.make}</td><td>${car.model}</td><td>${car.price}</td></tr>`).join("");
+        return lis;
+    }
+
+    document.querySelector("#filter-price-button").onclick = (evt) => {
+        evt.preventDefault();
+        const filterPrice = document.querySelector("#filter-price").value;
+        const filteredCars = cars.filter(car => car.price < filterPrice);
+        const filteredCarTable = makeList(filteredCars);
+        document.querySelector("#tbody").innerHTML = filteredCarTable;
+    }
+
+    document.querySelector("#clear-filter-button").onclick = () => {
+        const filterPrice = document.querySelector("#filter-price");
+        filterPrice.value = "";
+        const carTable = makeList(cars);
+        document.querySelector("#tbody").innerHTML = carTable;
+    }
+
+</script>
+</body>
+</html>

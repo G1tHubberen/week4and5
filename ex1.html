@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+</head>
+<body>
+<h1>Exercise 1</h1>
+<div id="d1" style="width: 100px;margin: 1px;">&nbsp;</div>
+<div id="d2" style="width: 100px;margin: 1px;">&nbsp;</div>
+<div id="d3" style="width: 100px;margin: 1px;">&nbsp;</div>
+<button id="color-button">Change colors!</button>
+<br><br>
+<a href="javascript:history.back()"><button>Back</button></a>
+<h1>Reflections</h1>
+<div id="reflections" class="reflect">
+    Using querySelectorAll and a for loop, you can change div colors on page load.
+    Then, querySelector for individual IDs allows you to customize colors.
+    For added interactivity, a button with a click event handler can randomize colors, creating a dynamic user experience.
+</div>
+
+
+<script>
+    const divs = document.querySelectorAll("div");
+    for(const div of divs){
+        div.style.backgroundColor = "blue";
+    }
+    document.querySelector("#reflections").style.backgroundColor = "white";
+
+    let button = document.querySelector("#color-button")
+    button.addEventListener("click", changeDivColor)
+
+    function changeDivColor(){
+        document.querySelector("#d1").style.backgroundColor = "red";
+        document.querySelector("#d2").style.backgroundColor = "yellow";
+        document.querySelector("#d3").style.backgroundColor = "green";
+    }
+
+</script>
+</body>
+</html>

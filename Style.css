@@ -1,0 +1,81 @@
+:root {
+    --heading: "Geneva", 900, white;
+    --sub-heading: "Helvetica", 700;
+    --text: "Helvetica", 400;
+    --primary-color: #231b4d;
+    --secondary-color: #022c03;
+    --tertiary-color: #f1b1b1;
+}
+
+/* CSS Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2{
+    font-family: Helvetica, sans-serif;
+    font-size: x-large;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+div {
+    font-family: Helvetica, sans-serif;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+button {
+    font-family: Helvetica, serif;
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    background-image: linear-gradient(45deg, var(--tertiary-color) 0%, #c7aef1 51%, var(--tertiary-color)  100%);
+    cursor: pointer;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: inline-block; /* make the buttons display inline */
+    text-decoration: none; /* remove the underline from the link */
+    border-bottom: none;
+}
+
+button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.reflect {
+    border-radius: 10px 5px 5px 5px;
+    width:70%;
+    border: 1px solid gray;
+    height:auto;
+    margin: 3rem;
+}
+
+.my-div {
+    width: 25px;
+    height: 25px;
+    background-color:red;
+    margin:1px;
+}

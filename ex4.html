@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+</head>
+<body>
+<h1>Exercise 4</h1>
+<select id="car-selector">
+    <!-- Options will be populated by JavaScript -->
+</select>
+<h2>Selected Brand</h2>
+<h4 id="car-make">Ford</h4>
+<br><br>
+<a href="javascript:history.back()"><button>Back</button></a>
+<h1>Reflections</h1>
+<div id="reflect" class="reflect">
+    Selectors are crucial for backend input with limited choices, typically ideal for up to 10 options.<br>
+    By running a forEach loop, options can be dynamically created using .createElement("option") and <br>
+    assigned values and text from a list, facilitating user-friendly, controlled interactions. <br>
+    This exercise underscores the practicality of selectors for frontend-backend interaction and dynamic content generation.
+</div>
+<script>
+    const cars = ["Ford", "VW", "Toyota", "Volvo"]; //Assume this was fechedfrom the backend
+    const selector = document.querySelector("#car-selector");
+    const carMake = document.querySelector("#car-make");
+
+    const carOptions = cars.forEach(car => {
+        const option = document.createElement("option");
+        option.value = car;
+        option.textContent = car;
+        selector.appendChild(option);
+    });
+
+    selector.addEventListener("change", function() {
+        const selectedCar = selector.value;
+        carMake.textContent = selectedCar;
+    })
+
+</script>
+
+</body>
+</html>
