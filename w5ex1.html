@@ -4,8 +4,91 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="CSS/Style.css">
-</head>
-<body>
+
+    </head>
+<body id="w5ex1">
+    <h1>Week 5 Exercise 1</h1>
+    <div class="styled-form">
+        <h2>Extract User Data</h2>
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" placeholder="Enter User ID">
+        <button id="extract-button">Extract Data</button>
+        <button id="get-all-users-button">Get All Users</button>
+    </div>
+
+    <table id="user-table">
+        <thead>
+        <tr id="table-header" style="display: none;">
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+<h1>Reflections</h1>
+<div class="reflect">
+    <ul>
+        A promise -> is an object that may produce a single value some time in the future: <br>
+        either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). <br>
+        A promise may be in one of 3 possible states: fulfilled, rejected, or pending. <br>
+        The fetch method returns -> a Promise that resolves to the Response to that request, whether it is successful or not. <br>
+        We need to have two .then callbacks with our fetch code because -> the first .then callback is for handling <br>
+        the response from the server, the second .then callback is for handling the data.
+    </ul>
+</div>
+
+
+    <script>
+        function fetchUserDataById(userId) {
+            const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
+            fetch(url)
+                .then((res) => res.json())
+                .then((data) => {
+                    const userInfo = document.getElementById("user-info");
+                    userInfo.style.display = "block";
+
+                    document.getElementById("user-name").textContent = data.name;
+                    document.getElementById("user-phone").textContent = data.phone;
+                    document.getElementById("user-street").textContent = data.address.street;
+                    document.getElementById("user-city").textContent = data.address.city;
+                    document.getElementById("user-zip").textContent = data.address.zipcode;
+                    document.getElementById("user-geo").textContent = `${data.address.geo.lat}, ${data.address.geo.lng}`;
+                })
+                .catch((error) => console.error("Error fetching user data:", error));
+        }
+
+        function fetchAllUsers() {
+            const url = "https://jsonplaceholder.typicode.com/users";
+            fetch(url)
+                .then((res) => res.json())
+                .then((data) => {
+                    const userTable = document.getElementById("user-table").getElementsByTagName("tbody")[0];
+                    userTable.innerHTML = "";
+
+                    data.forEach((user) => {
+                        const row = userTable.insertRow();
+                        row.insertCell(0).textContent = user.name;
+                        row.insertCell(1).textContent = user.phone;
+                    });
+                })
+                .catch((error) => console.error("Error fetching users data:", error));
+        }
+
+        document.getElementById("extract-button").addEventListener("click", function () {
+            const userId = document.getElementById("userId").value;
+            if (userId) {
+                fetchUserDataById(userId);
+            }
+        });
+
+        document.getElementById("get-all-users-button").addEventListener("click", fetchAllUsers);
+
+        // Initially hide user info and table header
+        const userInfo = document.getElementById("user-info");
+        userInfo.style.display = "none";
+    </script>
 
 </body>
 </html>

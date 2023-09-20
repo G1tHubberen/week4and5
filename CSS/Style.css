@@ -79,3 +79,59 @@ button:active {
     background-color:red;
     margin:1px;
 }
+
+#w5ex1 container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#w5ex1 form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+#w5ex1 label {
+    font-weight: bold;
+}
+
+#w5ex1 input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#w5ex1 .styled-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#w5ex1 .styled-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#w5ex1 .styled-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#get-all-users-button, #extract-button button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
