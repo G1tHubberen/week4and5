@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG-MAP Exercise</title>
+    <link rel="stylesheet" href="CSS/w5ex2.css">
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+<body>
+<h2>SVG-MAP Exercise</h2>
+<div class="container">
+    <div class="map">
+        <object type="image/svg+xml" data="images/europe-map.svg">Your browser does not support SVG</object>
+
+        <a href="javascript:history.back()"><button>Back</button></a>
+    </div>
+    <div class="info">Add info here, when fetched</div>
+</div>
+<div class="reflections">
+    <ul>
+        <p class="startText">Event Bubbling: </p>
+        We use event bubbling to handle clicks on the SVG map. Instead of adding many click
+        listeners to each country, we have one listener on the map itself. When a country is clicked, the event
+        bubbles up to the map, and we can determine which country was clicked.<br>
+        <br>
+        <p class="startText">DOM Manipulation: </p>
+        modify the web page content using JavaScript. When a country is clicked,
+        we use DOM manipulation to update the "info" div with details about the selected country. This
+        includes its name, capital, region, and more.<br>
+        <br>
+        <p class="startText">Fetch API: </p>
+        We fetch country data from a REST API when a country is clicked. We construct the
+        API URL based on the clicked country's ISO-country code. After receiving the API response,
+        we extract JSON data and use it to populate the "info" div with relevant country information.<br>
+        <br>
+    </ul>
+</div>
+<script src="w5ex2.js"></script>
+</body>
+</html>
