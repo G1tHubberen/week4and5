@@ -2,7 +2,7 @@
     display: flex;
 }
 .map, .reflections {
-    border: solid 1px steelblue;
+    border: solid 1px #3b79ab;
     width: 50%;
     padding: 10px;
     margin: 0.5rem;
@@ -11,7 +11,7 @@
 }
 
 .info {
-    border: solid 1px steelblue;
+    border: solid 1px #3b79ab;
     width: 25%;
     padding: 1rem;
     margin: 0.5rem;
